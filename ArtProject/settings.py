@@ -90,9 +90,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'CjGkcdtqXYV5WeauffBU',
-        'HOST': 'containers-us-west-189.railway.app',
-        'PORT': '7414',
+        'PASSWORD': os.environ['MY_RAIL_PASSWORD'],
+        'HOST': os.environ['MY_RAIL_HOST'],
+        'PORT': os.environ['MY_RAIL_PORT'],
     }
 } # tropical-ground on Railway.app
 
@@ -148,19 +148,13 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "jogeshwariwestmumbai@gmail.com"
-# EMAIL_HOST_USER = os.environ['MY_EMAIL_HOST_USER']
-
-EMAIL_FROM = "jogeshwariwestmumbai@gmail.com"
-# EMAIL_FROM = os.environ['MY_EMAIL_HOST_USER']
-
-EMAIL_HOST_PASSWORD = "iuauqwkslnwtskoq"
-# EMAIL_HOST_PASSWORD = os.environ['MY_EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = os.environ['MY_EMAIL_HOST_USER']
+EMAIL_FROM = os.environ['MY_EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['MY_EMAIL_HOST_PASSWORD']
 
 # Cloudinary, Jogeshwariwest linked Clouddinary acc.
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-cloudinary.config(cloud_name= "dx6n50oym", api_key= "166712245848644", api_secret= "dbRXGrJehk-UL-qhM3VtTQP6wVw")
-# cloudinary.config(cloud_name= os.environ['my_cloud_name'], api_key= os.environ['my_api_key'], api_secret= os.environ['my_api_secret'])
+cloudinary.config(cloud_name= os.environ['my_cloud_name'], api_key= os.environ['my_api_key'], api_secret= os.environ['my_api_secret'])
