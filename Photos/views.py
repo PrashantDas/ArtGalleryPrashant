@@ -15,7 +15,7 @@ from django.views.generic import (DetailView,
 
 
 def home(request):
-    return render(request, 'photos/home.html', {})
+    return render(request, 'Photos/home.html', {})
 
 
 
@@ -27,7 +27,7 @@ def gallery(request):
         photos = Shot.objects.filter(category__category_name=requested_category)
     categories = Category.objects.all()    
     context = {'categories': categories, 'photos': photos}
-    return render(request, 'photos/shot_list.html', context)
+    return render(request, 'Photos/shot_list.html', context)
 
 
 class ViewOne(DetailView):
