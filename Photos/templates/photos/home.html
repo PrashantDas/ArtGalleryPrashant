@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Home
+        {% endblock %}</title>
+  </head>
+  <body>
+
+        {% block content %}
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+          <img style="max-width:100%; max-height:100%" src="https://picsum.photos/1100/400/?grayscale" alt="photo not showing">
+          <center><small>{% if user.is_authenticated %}{% else %}{ Prashant Das }{% endif %}</small></center>
+        </div>
+        
+        {% endblock %}
+  </body>
+</html>
