@@ -24,10 +24,10 @@ def register_artist_view(request):
         else:
             messages.error(request, form_instance.errors)
             context = {'memberform': FormRegisterArtist()}
-            return render(request, 'artist/create-member.html', context)
+            return render(request, 'Artist/create-member.html', context)
     else:
         context = {'memberform': FormRegisterArtist()}
-        return render(request, 'artist/create-member.html', context)
+        return render(request, 'Artist/create-member.html', context)
 
 
 
@@ -49,7 +49,7 @@ def artist_login_view(request):
             messages.error(request, "Credentials invalid")      
             return redirect('login')  
     else:
-        return render(request, 'artist/login.html', {'form_login': FormLoginArtist()})
+        return render(request, 'Artist/login.html', {'form_login': FormLoginArtist()})
 
 
 
@@ -59,12 +59,12 @@ class ArtistLogout(SuccessMessageMixin, LogoutView):
 
 class ViewAllArtists(LoginRequiredMixin, ListView):
     model = get_user_model()
-    template_name = 'artist/all_list.html'
+    template_name = 'Artist/all_list.html'
 
 
 class ViewOneArtist(LoginRequiredMixin, DetailView):
     model = get_user_model()
-    template_name = 'artist/artist_detail.html'
+    template_name = 'Artist/artist_detail.html'
 
     
 
